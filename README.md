@@ -1,0 +1,1 @@
+# Django_Basics_september_2024
