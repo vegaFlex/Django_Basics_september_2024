@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Black">
+<<<<<<< HEAD
     <option name="sdkName" value="Python 3.12 (My_Blog)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (My_Blog)" project-jdk-type="Python SDK" />
+=======
+    <option name="sdkName" value="Python 3.12 (myblog)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (myblog)" project-jdk-type="Python SDK" />
+>>>>>>> 976f37b (added ne w app 'myblog')
 </project>
