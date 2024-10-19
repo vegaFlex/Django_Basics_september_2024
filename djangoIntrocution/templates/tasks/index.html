@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const inputField = document.querySelector('#title_filter');
+        const submitBtn = document.querySelector('#submit');
+        let debounceTimeout;
+
+        // Focus on the input field and move the cursor to the end of the text
+        inputField.focus();
+        const length = inputField.value.length;  // Get the length of the text
+        inputField.setSelectionRange(length, length);  // Set the cursor at the end
+        
+        // Function to debounce
+        function debounce(func, delay) {
+            return function(...args) {
+                clearTimeout(debounceTimeout);  // Clear the previous timeout
+                debounceTimeout = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+        h1
+
+        // Event listener for input change with debounce
+        inputField.addEventListener('input', debounce(function() {
+            console.log('Input changed, submitting the form');
+            submitBtn.click();   // Trigger the button click after debounce
+        }, 500));  // Debounce delay of 500ms
+    });
+    </script>
+</head>
+
+<body>
+    <h1>Todos</h1>
+    
+    {% if tasks %}
+        <p>You have {{ tasks|length }} tasks</p>
+    {% endif %}
+    
+    <form method="get" action="/">
+        <input type="text" id="title_filter" name="title_filter" value="{{ title_filter }}" placeholder="Search">
+        <button id="submit" type="submit">Search</button>
+    </form>
+    
+    <ul>
+        {% for task in tasks %} 
+            <li>{{ task.name }} - {{ task.created_at }}</li>
+        {% empty %}
+            <li>No results</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

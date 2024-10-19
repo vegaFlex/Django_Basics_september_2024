@@ -1,0 +1,17 @@
+{% extends 'common/base.html' %}
+{% load crispy_forms_tags %}
+{% load uppercase %}
+
+{% block content %}
+    {% uppercase %}
+        <h1>Hello user!</h1>
+    {% enduppercase %}
+    
+    <form>
+        {{ my_form }}
+    </form>
+    <form>
+        {% crispy my_form %}
+    </form>
+
+{% endblock %}
